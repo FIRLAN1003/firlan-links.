@@ -1,0 +1,525 @@
+
+/* =========================================
+   FIRLAN ADVOGADOS — LINK NA BIO
+   Identidade visual premium
+   Cor principal: #430D3B
+========================================= */
+
+:root {
+  --vinho: #430d3b;
+  --vinho-profundo: #20071e;
+  --vinho-claro: #642153;
+  --roxo: #a879bc;
+  --lilas: #e4d2ed;
+  --branco: #ffffff;
+  --texto-suave: #d6c7d5;
+  --borda: rgba(255, 255, 255, 0.13);
+  --superficie: rgba(255, 255, 255, 0.065);
+  --superficie-hover: rgba(255, 255, 255, 0.12);
+}
+
+/* Configurações gerais */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "DM Sans", sans-serif;
+  color: var(--branco);
+
+  background-color: #100519;
+
+background-image:
+  linear-gradient(
+    rgba(20, 3, 25, 0.48),
+    rgba(20, 3, 25, 0.58)
+  ),
+  url("assets/imagens/fundo-desktop.png");
+
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fundo vertical para celulares e tablets menores */
+@media (max-width: 768px) {
+  body {
+    background-image:
+  linear-gradient(
+    rgba(20, 3, 25, 0.42),
+    rgba(20, 3, 25, 0.58)
+  ),
+  url("assets/imagens/fundo-mobile.png");
+
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+}
+
+
+/* Seleção de texto */
+
+::selection {
+  background: var(--lilas);
+  color: var(--vinho-profundo);
+}
+
+/* Área principal */
+
+.pagina {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 64px 24px 32px;
+  overflow: hidden;
+}
+
+/* Iluminação decorativa */
+
+.luz {
+  position: absolute;
+  z-index: -1;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+  opacity: 0.22;
+}
+
+.luz-1 {
+  top: 120px;
+  left: -230px;
+  background: #b15ca4;
+}
+
+.luz-2 {
+  right: -240px;
+  bottom: 100px;
+  background: #8b4ab8;
+}
+
+/* Cabeçalho e perfil */
+
+.perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+  animation: aparecer 0.8s ease both;
+}
+
+/* Símbolo da marca */
+
+.perfil > * {
+  position: relative;
+}
+
+
+.logo {
+  width: 112px;
+  height: 112px;
+  margin-bottom: 22px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  background: #430d3b;
+  box-shadow:
+    0 0 0 5px rgba(255, 255, 255, 0.06),
+    0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.foto-equipe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Nome do escritório */
+
+.marca {
+  margin-bottom: 32px;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ead9ed;
+}
+
+/* Título principal */
+
+.perfil h1 {
+  max-width: 430px;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(32px, 6vw, 43px);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -1.8px;
+  text-wrap: balance;
+}
+
+/* Descrição */
+
+.perfil p {
+  max-width: 350px;
+  margin-top: 16px;
+  color: var(--texto-suave);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* Lista de links */
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  width: 100%;
+  max-width: 440px;
+  margin-top: 38px;
+}
+
+/* Cartões */
+
+.link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 76px;
+  padding: 16px 19px;
+  overflow: hidden;
+  border: 1px solid var(--borda);
+  border-radius: 18px;
+  background: var(--superficie);
+  color: var(--branco);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  animation: subir 0.65s ease both;
+}
+
+/* Entrada progressiva dos cartões */
+
+.link:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.link:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.link:nth-child(3) {
+  animation-delay: 0.26s;
+}
+
+.link:nth-child(4) {
+  animation-delay: 0.34s;
+}
+
+.link:nth-child(5) {
+  animation-delay: 0.42s;
+}
+
+/* Ícones */
+
+.link-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.075);
+  font-size: 20px;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Texto dos cartões */
+
+.link-texto {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+}
+
+.link-titulo {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+}
+
+.link-descricao {
+  color: #d0c0d0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Seta de navegação */
+
+.link-seta {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: #cbb2d1;
+  font-size: 21px;
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Link principal em destaque */
+
+.link-destaque {
+  border-color: rgba(255, 255, 255, 0.36);
+  background: linear-gradient(
+    110deg,
+    #f2e5f4 0%,
+    #e1c9e9 100%
+  );
+  box-shadow:
+    0 12px 32px rgba(14, 2, 14, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  color: #3c1035;
+}
+
+.link-destaque .link-icone {
+  border-color: rgba(67, 13, 59, 0.12);
+  background: rgba(67, 13, 59, 0.07);
+}
+
+.link-destaque .link-descricao {
+  color: #74556f;
+}
+
+.link-destaque .link-seta {
+  color: #642153;
+}
+
+/* Interações para computador */
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.34);
+    background: var(--superficie-hover);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
+  }
+
+  .link:hover .link-icone {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.13);
+  }
+
+  .link:hover .link-seta {
+    transform: translateX(4px);
+    color: var(--branco);
+  }
+
+  .link-destaque:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.2);
+  }
+
+  .link-destaque:hover .link-icone {
+    background: rgba(67, 13, 59, 0.1);
+  }
+
+  .link-destaque:hover .link-seta {
+    color: var(--vinho);
+  }
+}
+
+/* Acessibilidade por teclado */
+
+.link:focus-visible {
+  outline: 3px solid #e4d2ed;
+  outline-offset: 4px;
+}
+
+/* Rodapé */
+
+.rodape {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 440px;
+  margin-top: 38px;
+  text-align: center;
+  animation: aparecer 0.8s ease 0.5s both;
+}
+
+.rodape-linha {
+  width: 46px;
+  height: 1px;
+  margin-bottom: 23px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.rodape p {
+  color: #e8d9e8;
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.rodape small {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
+/* Animações */
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ajustes para telas pequenas */
+
+@media (max-width: 480px) {
+  .pagina {
+    padding: 42px 20px 28px;
+  }
+
+  .logo {
+    width: 68px;
+    height: 68px;
+    border-radius: 21px;
+    font-size: 34px;
+  }
+
+  .marca {
+    margin-bottom: 27px;
+    font-size: 10px;
+    letter-spacing: 3.5px;
+  }
+
+  .perfil h1 {
+    font-size: clamp(30px, 8vw, 37px);
+    letter-spacing: -1.4px;
+  }
+
+  .perfil p {
+    max-width: 320px;
+    font-size: 13px;
+  }
+
+  .links {
+    gap: 11px;
+    margin-top: 30px;
+  }
+
+  .link {
+    min-height: 72px;
+    gap: 13px;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .link-icone {
+    flex-basis: 39px;
+    width: 39px;
+    height: 39px;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+
+  .link-titulo {
+    font-size: 13px;
+  }
+
+  .link-descricao {
+    font-size: 10px;
+  }
+
+  .rodape {
+    margin-top: 32px;
+  }
+}
+
+/* Respeita quem prefere menos animações */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.link-icone svg {
+  width: 21px;
+  height: 21px;
+  stroke-width: 1.8;
+}
+
+.link-icone svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+}
